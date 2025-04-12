@@ -81,10 +81,10 @@ document.getElementById("saveImageBtn").addEventListener("click", function() {
 document.getElementById("kakaoShareBtn").addEventListener("click", function() {
     Kakao.Link.sendDefault({
         objectType: 'text',
-        text: '매력살 사주풀이 결과를 공유합니다!',
-        link: {
-            mobileWebUrl: window.location.href,
-            webUrl: window.location.href
+        text: '매력살 사주풀이 결과를 공유합니다. 자세한 결과는 아래 "자세히 보기"를 눌러주세요!',
+  link: {
+    mobileWebUrl: 'https://rokmcjy.github.io/saju-project/',
+    webUrl: 'https://rokmcjy.github.io/saju-project/'
         }
     });
 });
