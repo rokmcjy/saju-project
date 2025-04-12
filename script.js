@@ -1,5 +1,5 @@
 if (!Kakao.isInitialized()) {
-    Kakao.init('여기에_본인_JavaScript_키'); 
+    Kakao.init('여기에_본인_JavaScript_키');
 }
 document.getElementById("unknownTime").addEventListener("change",function(){document.getElementById("birthTime").disabled=this.checked;});
 document.getElementById("birthForm").addEventListener("submit",function(e){
@@ -27,7 +27,7 @@ const traits = {
 const character = (element==="금"||element==="화")?"리더십, 적극적":"차분하고 신중한";
 const loveStyle = (element==="금"||element==="화")?"직진형":"서서히 다가가는형";
 
-let result = "<h2>매력살+사주 통합풀이</h2>";
+let result = "<h2>감성 매력살 사주풀이 결과</h2>";
 result += "<p>생년월일: "+year+"년 "+month+"월 "+day+"일</p>";
 result += "<p>출생시간: "+(unknownTime?"모름":birthTime)+"</p>";
 result += "<p>성별: "+(gender==="male"?"남자":"여자")+"</p><br>";
