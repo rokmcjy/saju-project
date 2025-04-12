@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>매력살 사주풀이</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cafe24+Ssurround&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>매력살+사주 통합풀이</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cafe24+Ssurround&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>매력살 사주풀이</h1>
-        <form id="birthForm">
-            <label>생년월일</label>
-            <input type="date" id="birthDate" required>
-            <label>출생시간</label>
-            <input type="time" id="birthTime">
-            <label class="checkbox-wrap"><input type="checkbox" id="unknownTime"> 출생시간 모름</label>
-            <label>성별</label>
-            <select id="gender" required>
-                <option value="">선택하세요</option>
-                <option value="male">남자</option>
-                <option value="female">여자</option>
-            </select>
-            <button type="submit">사주풀이 시작</button>
-        </form>
-        <div id="result"></div>
-        <div id="share-buttons" style="display:none;">
-            <button id="saveImageBtn">결과 저장하기</button>
-            <button id="kakaoShareBtn">카카오톡으로 공유</button>
-            <button id="smsShareBtn">문자로 공유</button>
-        </div>
+  <div class="container">
+    <h1>매력살 사주풀이</h1>
+    <form id="birthForm">
+      <label>생년월일</label>
+      <input type="date" id="birthDate" required>
+      <label>출생시간</label>
+      <input type="time" id="birthTime">
+      <label class="checkbox-wrap"><input type="checkbox" id="unknownTime"> 출생시간 모름</label>
+      <label>성별</label>
+      <select id="gender" required>
+        <option value="">선택하세요</option>
+        <option value="male">남자</option>
+        <option value="female">여자</option>
+      </select>
+      <button type="submit">사주풀이 시작</button>
+    </form>
+    <div id="result"></div>
+    <div id="share-buttons" style="display:none;">
+      <button id="saveImageBtn">결과 저장하기</button>
+      <button id="kakaoShareBtn">카카오톡으로 공유</button>
+      <button id="smsShareBtn">문자로 공유</button>
     </div>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    <script src="script.js"></script>
+  </div>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
