@@ -1,4 +1,4 @@
-// 카카오 init (본인 JavaScript 키 입력 필요)
+// 카카오 초기화 (본인 JavaScript 키 입력 필요)
 if (!Kakao.isInitialized()) {
     Kakao.init('여기에_본인_JavaScript_키');
 }
@@ -16,9 +16,10 @@ gender = document.getElementById("gender").value;
 const date = new Date(birthDate),
 year = date.getFullYear(),
 zodiac = ["원숭이","닭","개","돼지","쥐","소","호랑이","토끼","용","뱀","말","양"][year%12];
-let result = "생년월일: "+birthDate.replaceAll("-","년 ").replace(" ","월 ")+"일<br>";
-result += "출생시간: "+(unknownTime?"모름":birthTime)+"<br>";
-result += "성별: "+("male"===gender?"남자":"여자")+"<br><br>";
+let result = "<h2>매력살 사주풀이 결과</h2>";
+result += "<p>생년월일: "+birthDate.replaceAll("-","년 ").replace(" ","월 ")+"일</p>";
+result += "<p>출생시간: "+(unknownTime?"모름":birthTime)+"</p>";
+result += "<p>성별: "+("male"===gender?"남자":"여자")+"</p><br>";
 
 // 매력살 판별
 let charms = [];
@@ -30,27 +31,32 @@ if (["용","말","쥐"].includes(zodiac)) charms.push("상관살");
 if (["양","돼지","토끼"].includes(zodiac)) charms.push("화개살");
 if (["소","토끼","양"].includes(zodiac)) charms.push("천덕귀인");
 
-result += "<strong>[매력살 분석]</strong><br>";
+if (charms.length>0){
+result += "<h3>[개별 매력살 해석]</h3>";
 charms.forEach(function(c){
-  switch(c){
-    case "도화살": result+="- 도화살: 타고난 외모 매력, 이성운 강함<br>"; break;
-    case "홍염살": result+="- 홍염살: 부드러운 감성 매력<br>"; break;
-    case "천을귀인": result+="- 천을귀인: 신뢰와 도움을 주는 매력<br>"; break;
-    case "문창살": result+="- 문창살: 지적이고 말솜씨 좋은 매력<br>"; break;
-    case "상관살": result+="- 상관살: 자유롭고 끼 넘치는 성격<br>"; break;
-    case "화개살": result+="- 화개살: 신비로운 감성 아우라<br>"; break;
-    case "천덕귀인": result+="- 천덕귀인: 따뜻하고 인덕 많은 매력<br>"; break;
-  }
-});
-if (charms.length > 1){
-  result += "<br><strong>[매력 조합 해석]</strong><br>";
-  result += "- 다양한 매력살을 함께 가진 인기형 사주입니다.<br>";
+switch(c){
+case "도화살": result+='<p><strong>도화살:</strong> 타고난 외모적 매력과 밝은 인상. 이성운 강함.</p>'; break;
+case "홍염살": result+='<p><strong>홍염살:</strong> 부드러운 감성과 연애 감성 뛰어남.</p>'; break;
+case "천을귀인": result+='<p><strong>천을귀인:</strong> 신뢰와 귀인성 매력, 도움을 받는 인간관계.</p>'; break;
+case "문창살": result+='<p><strong>문창살:</strong> 지적 매력, 언변력 뛰어남.</p>'; break;
+case "상관살": result+='<p><strong>상관살:</strong> 자유로운 끼, 표현력이 강함.</p>'; break;
+case "화개살": result+='<p><strong>화개살:</strong> 신비로운 감성, 예술적 아우라.</p>'; break;
+case "천덕귀인": result+='<p><strong>천덕귀인:</strong> 따뜻하고 인덕 많은 인간관계.</p>'; break;
 }
+});
+}
+
+// 종합 해석 추가
+if (charms.length>1){
+result += "<h3>[매력 조합 종합 해석]</h3>";
+result += "<p>당신은 "+charms.join(", ")+"을 모두 갖춘 풍부한 매력을 가진 사람입니다. 연애운과 인간관계운이 매우 강하며 사회적 인기와 귀인운도 기대할 수 있습니다.</p>";
+}
+
 document.getElementById("result").innerHTML=result;
 document.getElementById("share-buttons").style.display="flex";
 });
 
-// 저장 버튼
+// 결과 저장
 document.getElementById("saveImageBtn").addEventListener("click",function(){
 html2canvas(document.querySelector("#result")).then(e=>{
 const t=document.createElement("a");
@@ -60,7 +66,7 @@ t.click();
 });
 });
 
-// 카카오 공유
+// 카카오톡 공유
 document.getElementById("kakaoShareBtn").addEventListener("click",function(){
 Kakao.Link.sendDefault({
   objectType: 'text',
