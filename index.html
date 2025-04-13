@@ -1,38 +1,74 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>감성 매력살 사주풀이</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cafe24+Ssurround&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인 사주 기반 매력살 분석기</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 카카오톡 공유 API -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <!-- HTML2Canvas 라이브러리 (이미지 저장용) -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>감성 매력살 사주풀이</h1>
-    <form id="birthForm">
-      <label>생년월일</label>
-      <input type="date" id="birthDate" required>
-      <label>출생시간</label>
-      <input type="time" id="birthTime">
-      <label class="checkbox-wrap"><input type="checkbox" id="unknownTime"> 출생시간 모름</label>
-      <label>성별</label>
-      <select id="gender" required>
-        <option value="">선택하세요</option>
-        <option value="male">남자</option>
-        <option value="female">여자</option>
-      </select>
-      <button type="submit">사주풀이 시작</button>
-    </form>
-    <div id="result"></div>
-    <div id="share-buttons" style="display:none;">
-      <button id="saveImageBtn">결과 저장하기</button>
-      <button id="kakaoShareBtn">카카오톡으로 공유</button>
-      <button id="smsShareBtn">문자로 공유</button>
+    <div class="container">
+        <header>
+            <h1>개인 사주 기반 매력살 분석기</h1>
+            <p>당신의 생년월일에 따른 매력살을 분석해 드립니다</p>
+        </header>
+        
+        <main>
+            <section class="input-section">
+                <form id="birthForm">
+                    <div class="form-group">
+                        <label for="birthDate">생년월일</label>
+                        <input type="date" id="birthDate" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="birthTime">출생시간</label>
+                        <input type="time" id="birthTime">
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="unknownTime">
+                            <label for="unknownTime">출생시간 모름</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gender">성별</label>
+                        <select id="gender" required>
+                            <option value="male">남자</option>
+                            <option value="female">여자</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">매력살 분석하기</button>
+                </form>
+            </section>
+            
+            <section class="result-section">
+                <div id="result" class="result-container"></div>
+                
+                <div id="share-buttons" class="share-container" style="display: none;">
+                    <button id="saveImageBtn" class="share-btn save-btn">
+                        <span class="icon">💾</span> 이미지로 저장
+                    </button>
+                    <button id="kakaoShareBtn" class="share-btn kakao-btn">
+                        <span class="icon">🗣️</span> 카카오톡 공유
+                    </button>
+                    <button id="smsShareBtn" class="share-btn sms-btn">
+                        <span class="icon">💬</span> 문자 공유
+                    </button>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>© 2025 매력살 사주풀이 시스템 - 이 분석은 참고용으로만 사용하세요.</p>
+        </footer>
     </div>
-  </div>
-  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-  <script src="script.js"></script>
+
+    <!-- 자바스크립트 -->
+    <script src="script.js"></script>
 </body>
 </html>
