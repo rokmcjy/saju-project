@@ -6,7 +6,7 @@
 
 // 카카오톡 API 초기화 (앱 키 필요)
 if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
-    Kakao.init('여기에_본인_JavaScript_키');
+    Kakao.init('774979357d4033f924a2a83f0c6e103c');
 }
 
 // 출생시간 모름 체크박스 이벤트
